@@ -1,14 +1,15 @@
-import { useState } from "react";
-import MovieList from "./components/MovieList";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
   return (
-    <div>
-      {loading ? <h1>Loading...</h1> : null}
-      <MovieList loading={loading} setLoading={setLoading} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path={"/"} exact element={<Home />} />
+        <Route path={"/movie/:id"} element={<Detail />} />
+      </Routes>
+    </Router>
   );
 }
 
