@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import MovieListItem from "./MovieListItem";
+import MovieItem from "./MovieItem";
 
-export default function MovieList({ setLoading, loading }) {
+export default function Movie({ setLoading, loading }) {
   const [movies, setMovies] = useState([]);
 
   const getMovies = async () => {
@@ -19,8 +19,9 @@ export default function MovieList({ setLoading, loading }) {
   const moviesInfo = movies.map((movie) => {
     const { id, title, summary, genres, medium_cover_image } = movie;
     return (
-      <MovieListItem
+      <MovieItem
         key={id}
+        id={id}
         title={title}
         summary={summary}
         genres={genres}
