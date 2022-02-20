@@ -3,10 +3,12 @@ import Home from "./routes/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const { PUBLIC_URL } = process.env;
+
   return (
-    <Router>
+    <Router basename={PUBLIC_URL}>
       <Routes>
-        <Route path={"/"} exact element={<Home />} />
+        <Route path={"/"} element={<Home />} />
         <Route path={"/movie/:id"} element={<Detail />} />
       </Routes>
     </Router>
