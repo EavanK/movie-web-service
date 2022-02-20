@@ -1,7 +1,13 @@
+import { useState } from "react";
+import MovieList from "./components/MovieList";
+
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div>
+      {loading ? <h1>Loading...</h1> : null}
+      <MovieList loading={loading} setLoading={setLoading} />
     </div>
   );
 }
