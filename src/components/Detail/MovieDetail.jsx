@@ -64,17 +64,18 @@ export default function MovieDetail({ loading, setLoading }) {
                   <b>Discription &rsaquo;</b>
                   <br />
                 </span>
-                {movie.description_full}
+                {movie.description_full.length > 550
+                  ? `${movie.description_full.slice(0, 550)}...`
+                  : movie.description_full}
               </p>
               <ul className={styles.movie__genres}>
-                <p>Genres &rsaquo;&rsaquo; </p>
+                <p style={{ margin: 0 }}>Genres &rsaquo;&rsaquo; </p>
                 {parsedGenres}
               </ul>
               <small className={styles.movie__upload}>
                 <b>Uploaded at: </b>
                 {movie.date_uploaded}
               </small>
-              {/* <Link to="/">Home</Link> */}
             </div>
             <button className={styles.home} type="button" onClick={handleClick}>
               &lsaquo;
