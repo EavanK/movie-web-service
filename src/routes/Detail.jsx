@@ -5,8 +5,14 @@ export default function Detail() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div>
-      {loading && <h1>Loading...</h1>}
+    <div className="container">
+      {loading && (
+        <div className="loader">
+          <span>
+            <b>Loading...</b>
+          </span>
+        </div>
+      )}
       <MovieDetail loading={loading} setLoading={setLoading} />
     </div>
   );
