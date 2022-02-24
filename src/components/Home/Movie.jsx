@@ -1,34 +1,26 @@
-import { useEffect, useState } from "react";
 import MovieItem from "./MovieItem";
+import { GET_MOVIES } from "../../api";
+import { useQuery } from "@apollo/client";
+import styled from "styled-components";
 
-export default function Movie({ setLoading, loading }) {
-  const [movies, setMovies] = useState([]);
+const Loading = styled.div`
+  grid-column: 1 / 5;
+  font-size: 20px;
+  opacity: 0.5;
+  font-weight: 500;
+  margin-top: 60px;
+  text-align: center;
+`;
 
-  const getMovies = async () => {
-    const json = await (
-      await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5`)
-    ).json();
-    setMovies(json.data.movies);
-    setLoading(false);
-  };
+export default function Movie() {
+  const { loading, data } = useQuery(GET_MOVIES);
 
-  useEffect(() => {
-    getMovies();
-  }, []);
+  if (loading) return <Loading>Loading...</Loading>;
 
-  const moviesInfo = movies.map((movie) => {
-    const { id, title, summary, genres, medium_cover_image } = movie;
+  return data?.movies?.map((movie) => {
+    const { id, medium_cover_image, title } = movie;
     return (
-      <MovieItem
-        key={id}
-        id={id}
-        title={title}
-        summary={summary}
-        genres={genres}
-        img={medium_cover_image}
-      />
+      <MovieItem key={id} id={id} img={medium_cover_image} title={title} />
     );
   });
-
-  return <>{!loading && <div>{moviesInfo}</div>}</>;
 }
