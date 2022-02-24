@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Poster from "../Poster";
 
 const Container = styled.div`
   height: 400px;
@@ -10,24 +11,11 @@ const Container = styled.div`
   background-color: transparent;
 `;
 
-const Poster = styled.div`
-  background-image: url(${(props) => props.img});
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center center;
-  border-radius: 7px;
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
-`;
-
 export default function MovieItem({ id, img }) {
   return (
     <Container>
       <Link to={`/movie/${id}`}>
-        <Poster img={img} />
+        <Poster img={img} h="100%" w="100%" o="0.8" />
       </Link>
     </Container>
   );

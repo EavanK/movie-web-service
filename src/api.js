@@ -5,7 +5,6 @@ export const GET_MOVIES = gql`
     movies {
       id
       medium_cover_image
-      title
     }
   }
 `;
@@ -19,6 +18,10 @@ export const GET_MOVIE = gql`
       rating
       medium_cover_image
       description_intro
+    }
+    suggestions(id: $id) {
+      id
+      medium_cover_image
     }
   }
 `;

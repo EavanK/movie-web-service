@@ -13,10 +13,9 @@ const Loading = styled.div`
 `;
 
 export default function Movie() {
-  const { loading, err, data } = useQuery(GET_MOVIES);
+  const { loading, data } = useQuery(GET_MOVIES);
 
   if (loading) return <Loading>Loading...</Loading>;
-  if (err) return <p>{`Error: ${err}`}</p>;
 
   return data?.movies?.map((movie) => {
     const { id, medium_cover_image, title } = movie;
