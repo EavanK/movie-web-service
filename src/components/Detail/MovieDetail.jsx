@@ -54,7 +54,7 @@ const Home = styled.div`
 export default function MovieDetail() {
   const { id } = useParams();
   const { loading, data } = useQuery(GET_MOVIE, {
-    variables: { id },
+    variables: { id: parseInt(id) },
   });
 
   const parsedSuggestions = data?.suggestions?.map((s) => {
