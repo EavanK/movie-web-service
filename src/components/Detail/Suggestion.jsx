@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Poster from "../Poster";
+import PropTypes from "prop-types";
 
 export default function Suggestion({ id, img }) {
   return (
@@ -8,3 +9,8 @@ export default function Suggestion({ id, img }) {
     </Link>
   );
 }
+
+Suggestion.propTypes = {
+  id: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+};
