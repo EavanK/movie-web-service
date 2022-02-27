@@ -18,9 +18,9 @@ export default function Movie() {
   if (loading) return <Loading>Loading...</Loading>;
 
   return data?.movies?.map((movie) => {
-    const { id, medium_cover_image, title } = movie;
+    const { id, medium_cover_image, isLiked } = movie;
     return (
-      <MovieItem key={id} id={id} img={medium_cover_image} title={title} />
+      <MovieItem key={id} id={id} isLiked={isLiked} img={medium_cover_image} />
     );
   });
 }

@@ -23,6 +23,10 @@ const Title = styled.h1`
   font-size: 60px;
   font-weight: 600;
   margin-bottom: 20px;
+
+  @media only screen and (max-width: 480px) {
+    font-size: 40px;
+  }
 `;
 const Subtitle = styled.h3`
   font-size: 35px;
@@ -35,6 +39,16 @@ const Movies = styled.div`
   width: 60%;
   position: relative;
   top: -50px;
+
+  @media only screen and (max-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: 770px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export default function Home() {
