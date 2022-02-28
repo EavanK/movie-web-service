@@ -119,10 +119,10 @@ export default function MovieDetail() {
               {data.movie.rating}
             </Subtitle>
             <Description>{data.movie.description_intro}</Description>
+            Suggestions:
+            <Suggestions>{parsedSuggestions}</Suggestions>
           </>
         )}
-        Suggestions:
-        <Suggestions>{parsedSuggestions}</Suggestions>
         <Link to={"/"}>
           <Home>&lsaquo;</Home>
         </Link>
