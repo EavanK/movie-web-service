@@ -9,7 +9,7 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-  background-image: linear-gradient(-45deg, #d754ab, #fd723a);
+  background-image: linear-gradient(-45deg, #7b54d7, #3afd44);
   height: 45vh;
   color: white;
   display: flex;
