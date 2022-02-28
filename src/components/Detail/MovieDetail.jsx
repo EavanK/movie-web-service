@@ -109,7 +109,7 @@ export default function MovieDetail() {
         <Title>
           {loading
             ? "Loading..."
-            : `${data.movie.title} ${data.movie.isLiked && "❤️"}`}
+            : `${data.movie.title} ${data.movie.isLiked ? "❤️" : ""}`}
         </Title>
         <Poster img={data?.movie?.medium_cover_image} h="350px" w="250px" />
         {!loading && (
